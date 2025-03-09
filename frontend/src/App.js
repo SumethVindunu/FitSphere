@@ -3,6 +3,7 @@ import './index.css'; // Importing Tailwind CSS
 import { Route, Routes } from 'react-router';
 import Home from './components/Home/Home';
 import AddItem from './components/AddItem/AddItem';
+import DisplayItem from './components/DisplayItems/DisplayItem';
 
 function App() {
   return (
@@ -11,6 +12,9 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/additem" element={<AddItem />} />
+          <Route path="/allitem" element={<DisplayItem />} />
+         
+
         </Routes>
       </React.Fragment>
     </div>
