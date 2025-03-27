@@ -4,6 +4,7 @@ import { Route, Routes } from 'react-router';
 import Home from './components/Home/Home';
 import AddItem from './components/AddItem/AddItem';
 import DisplayItem from './components/DisplayItems/DisplayItem';
+import UpdateItem from './components/UpdateItem/UpdateItem';
 
 function App() {
   return (
@@ -13,7 +14,9 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/additem" element={<AddItem />} />
           <Route path="/allitem" element={<DisplayItem />} />
-         
+          <Route path="/updateitem/:id" element={<UpdateItem />} />
+          
+
 
         </Routes>
       </React.Fragment>

@@ -14,6 +14,9 @@ function DisplayItem() {
         const result = await axios.get("http://localhost:8080/inventory");
         setInventory(result.data);
     };
+    const UpdateNavigate = (id) => {
+        window.location.href = `/updateitem/${id}`;
+    }
 
     return (
         <div className="p-4">
@@ -37,9 +40,9 @@ function DisplayItem() {
                             <td className="py-2 px-4 border">
                                 <img 
                                     src={`http://localhost:8080/uploads/${item.itemImage}`} 
-                                    
-                                    width="100" 
-                                    height="100" 
+                                    alt={item.itemName || "Item image"} 
+                                    className="w-24 h-24 i object-cover rounded"
+                                     
                                     
                                 />
 
@@ -49,7 +52,7 @@ function DisplayItem() {
                             <td className="py-2 px-4 border">{item.itemQty}</td>
                             <td className="py-2 px-4 border">{item.itemDetails}</td>
                             <td className="py-2 px-4 border">
-                                <button className="bg-blue-500 text-white px-4 py-2 rounded">Edit</button>
+                                <button onClick={()=> UpdateNavigate(item.id)} className="bg-blue-500 text-white px-4 py-2 rounded">Edit</button>
                                 <button className=" ml-2 bg-red-500 text-white px-4 py-2 rounded">Delete</button>
                             </td>
                         </tr>
