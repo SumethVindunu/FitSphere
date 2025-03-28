@@ -150,4 +150,26 @@ public class InventoryController {
         }).orElseThrow(() -> new InventoryNotFoundException(id));
     }
 
+    @DeleteMapping("/inventory/{id}")
+    String deleteItem(@PathVariable Long id) {
+        //check item is exists db
+        InventoryModel inventoryItem = inventoryRepository.findById(id)
+                .orElseThrow(() -> new InventoryNotFoundException(id));
+        //delete item
+        String itemImage = inventoryItem.getItemImage();
+        if(itemImage != null && !itemImage.isEmpty()){
+            File imageFile = new File(UPLOAD_DIR + itemImage);
+            if (imageFile.exists()) {
+                if(imageFile.delete()){
+                    System.out.println("Image file deleted successfully");
+                }else {
+                    System.out.println("Failed to delete the image file");
+                }
+            }
+        }
+        //delete item from the reppo
+        inventoryRepository.deleteById(id);
+        return "Item"+ id+" and image deleted successfully";
+    }
+
 }

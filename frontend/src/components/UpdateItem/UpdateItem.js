@@ -57,10 +57,10 @@ const UpdateItem = () => {
             data.append('file',formData.itemImage);
         }
         try{
-            const responce = await axios.put(`http://localhost:8080/inventory/${id}`,data);
+            await axios.put(`http://localhost:8080/inventory/${id}`,data);
             alert('Item updated successfully');
-            window.location.reload();
-            // window.location.href = '/allitem';
+            //window.location.reload();
+            window.location.href = '/allitem';
         }catch(error){
             console.error('error updating item',error);
             alert('Error updating item');

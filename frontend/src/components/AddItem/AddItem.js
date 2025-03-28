@@ -34,8 +34,8 @@ const AddItem = () => {
       });
       imageName = response.data;
       alert('Item add successfully');
-      window.location.reload();
-            //window.location.href = '/allitem';
+      //window.location.reload();
+            window.location.href = '/allitem';
     } catch (error) {
       alert("Error uploading image");
       return;
