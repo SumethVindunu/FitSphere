@@ -22,40 +22,6 @@ public class InventoryController {
     @Autowired
     private InventoryRepository inventoryRepository;
 
-//     @GetMapping("/")
-//     public String rootMap() {
-//         String message = "Hello World";
-//         return message;
-//     }
-
-//     @GetMapping("/hello")
-//     public String helloEndpoint(@RequestParam(value = "name", defaultValue = "World") String name) {
-//         return "Hello, " + name + "!";
-//     }
-
-//     @GetMapping("/greet")
-//     public String greet() {
-//         return "Welcome to Spring Boot!";
-//     }
-
-
-//     @GetMapping("/greet/{name}")
-// public String greetWithCustomMessage(
-//         @PathVariable String name,
-//         @RequestParam(value = "message", required = false) String message) {
-
-//     if (message == null || message.isEmpty()) {
-//         message = "Welcome to Spring Boot!";
-//     }
-
-//     return "Hello " + name + "! " + message;
-// }
-
-
-
-
-
-
     @PostMapping("/Inventory")
     public InventoryModel newInventoryModel(@RequestBody InventoryModel newInventoryModel) {
 
