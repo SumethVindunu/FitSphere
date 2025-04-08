@@ -8,6 +8,8 @@ import UpdateItem from './components/UpdateItem/UpdateItem';
 import Graph from './components/Graph/Graph';
 import Register from './components/Reginster/Register';
 import Navbar from './components/Navbar/Navbar';
+import Login from './components/Login/Login';
+import Profile from './components/Profile/Profile';
 
 function App() {
   return (
@@ -23,6 +25,9 @@ function App() {
           <Route path="/graph" element={<Graph />} />
           {/* user */}
           <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/profile" element={<Profile />} />
+
         </Routes>
       </React.Fragment>
     </div>

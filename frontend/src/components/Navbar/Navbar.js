@@ -21,13 +21,13 @@ const Navbar = () => {
             </button>
             <button
               className="bg-white text-blue-500 hover:bg-gray-100 font-bold py-2 px-4 rounded transition duration-300 ease-in-out"
-              onClick={() => (window.location.href = "#")}
+              onClick={() => (window.location.href = "login")}
             >
               Login
             </button>
             <button
               className="bg-white text-blue-500 hover:bg-gray-100 font-bold py-2 px-4 rounded transition duration-300 ease-in-out"
-              onClick={() => (window.location.href = "#")}
+              onClick={() => (window.location.href = "profile")}
             >
               Profile
             </button>

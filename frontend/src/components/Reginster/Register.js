@@ -21,7 +21,7 @@ const Register = () => {
     try {
       await axios.post('http://localhost:8080/user', user);
       alert('User registered successfully');
-      window.location.href = '/';
+      window.location.href = '/login';
       // Optionally redirect or reset the form here
     } catch (error) {
       alert('Error registering user');
