@@ -1,5 +1,7 @@
 import axios from 'axios';
 import React from 'react'
+import { toast } from 'react-toastify'; 
+import 'react-toastify/dist/ReactToastify.css'; 
 
 const Login = () => {
 
@@ -12,15 +14,20 @@ const Login = () => {
             const responce = await axios.post('http://localhost:8080/login', loginDetails);
             if(responce.data.id){
                 localStorage.setItem('userId',responce.data.id);//save user
-                alert('Login successful');
-                window.location.href='/profile';
+                toast.success('Login successful');
+                setTimeout(() => {
+                  window.location.href = '/profile';
+              }, 2000);
               }else{
-                alert('Invalid credentials');
+                toast.error('Invalid credentials');
             }
             
         } catch (error) {
-            alert('Error logging in');
+          toast.error('Error loging in');
+          setTimeout(() => {
             window.location.reload();
+        }, 2000);
+            
         }
     }
   return (

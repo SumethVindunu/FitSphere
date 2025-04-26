@@ -1,6 +1,15 @@
 import React from 'react'
+import { toast } from 'react-toastify'; 
+import 'react-toastify/dist/ReactToastify.css'; 
 
 const Navbar = () => {
+  const handleLogout = () => {
+    localStorage.removeItem('userId'); 
+    toast.error("Logout successful");
+    setTimeout(() => {
+      window.location.href = "/login";
+    }, 2000);
+};
   return (
     <div>
         <nav className="bg-blue-500 p-4 shadow-lg">
@@ -31,6 +40,15 @@ const Navbar = () => {
             >
               Profile
             </button>
+            <button
+              className="bg-white text-blue-500 hover:bg-red-400 hover:text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out"
+              onClick={handleLogout}
+            >
+              Logout
+            </button>
+           
+            
+           
           </div>
         </div>
       </nav>
