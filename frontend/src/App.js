@@ -1,6 +1,8 @@
 import React from 'react';
 import './index.css'; // Importing Tailwind CSS
 import { Route, Routes } from 'react-router';
+import { ToastContainer } from 'react-toastify'; 
+import 'react-toastify/dist/ReactToastify.css'; 
 import Home from './components/Home/Home';
 import AddItem from './components/AddItem/AddItem';
 import DisplayItem from './components/DisplayItems/DisplayItem';
@@ -15,7 +17,19 @@ function App() {
   return (
     <div className="App container mx-auto p-4">
       <Navbar/>
+      <ToastContainer 
+        position="top-right"
+        autoClose={2000} 
+        hideProgressBar={false} 
+        newestOnTop={true} 
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
       <React.Fragment>
+        
         <Routes>
           {/* inventory */}
           <Route path="/" element={<Home />} />
@@ -27,6 +41,9 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/profile" element={<Profile />} />
+          {/* navbar */}
+          
+
 
         </Routes>
       </React.Fragment>
