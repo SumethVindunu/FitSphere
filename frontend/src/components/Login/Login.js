@@ -16,7 +16,7 @@ const Login = () => {
                 localStorage.setItem('userId',responce.data.id);//save user
                 toast.success('Login successful');
                 setTimeout(() => {
-                  window.location.href = '/profile';
+                  window.location.href = '/userprofile';
               }, 2000);
               }else{
                 toast.error('Invalid credentials');
@@ -25,7 +25,7 @@ const Login = () => {
         } catch (error) {
           toast.error('Error loging in');
           setTimeout(() => {
-            window.location.reload();
+            window.location.href = '/login';
         }, 2000);
             
         }

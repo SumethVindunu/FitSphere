@@ -11,8 +11,9 @@ import Graph from './components/Graph/Graph';
 import Register from './components/Reginster/Register';
 import Navbar from './components/Navbar/Navbar';
 import Login from './components/Login/Login';
-import Profile from './components/Profile/Profile';
 import ViewStates from './components/Status/ViewStates';
+import UserProfile from './components/UserProfile/UserProfile';
+import UpdateProfile from './components/UpdateProfile/UpdateProfile';
 
 function App() {
   return (
@@ -41,7 +42,8 @@ function App() {
           {/* user */}
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/userprofile" element={<UserProfile />} />
+          { <Route path="/updateprofile/:id" element={<UpdateProfile />} /> }
           {/* navbar */}
           <Route path="/viewstates" element={<ViewStates />} />
           {/* 404 */}

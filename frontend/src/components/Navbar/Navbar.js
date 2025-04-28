@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom'; // Import Link from React Router
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import React, { useState } from "react";
+import { Link } from "react-router-dom"; // Import Link from React Router
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Navbar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -11,7 +11,7 @@ const Navbar = () => {
   };
 
   const handleLogout = () => {
-    localStorage.removeItem('userId');
+    localStorage.removeItem("userId");
     toast.error("Logout successful");
     setTimeout(() => {
       window.location.href = "/login";
@@ -41,13 +41,13 @@ const Navbar = () => {
       {/* Sidebar */}
       <div
         className={`fixed top-0 left-0 h-full bg-gray-800 text-white w-64 transform ${
-          isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
+          isSidebarOpen ? "translate-x-0" : "-translate-x-full"
         } transition-transform duration-300 ease-in-out`}
       >
         <div className="p-4">
           <h2 className="text-xl font-bold">Menu</h2>
           <ul className="mt-4 space-y-2">
-          <li>
+            <li>
               <Link
                 to="/"
                 className="w-full text-left hover:bg-gray-700 p-2 rounded block"
@@ -71,7 +71,7 @@ const Navbar = () => {
                 View My Posts
               </Link>
             </li>
-            
+
             <li>
               <Link
                 to="/register"
@@ -90,7 +90,7 @@ const Navbar = () => {
             </li>
             <li>
               <Link
-                to="/profile"
+                to="/userprofile"
                 className="w-full text-left hover:bg-gray-700 p-2 rounded block"
               >
                 Profile
