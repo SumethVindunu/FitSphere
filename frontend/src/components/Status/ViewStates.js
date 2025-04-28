@@ -1,25 +1,21 @@
-import React from 'react'
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const ViewStates = () => {
-  return (
-    <div>ViewStates
-        <h1 className='text-2xl font-bold'>View States</h1>
-        <div className='flex flex-col'>
-            <div className='flex justify-between items-center bg-gray-200 p-4 rounded-lg shadow-md mb-4'>
-            <div className='flex items-center'>
-                <span className='text-lg font-semibold'>State 1</span>
-            </div>
-            <button className='bg-blue-500 text-white px-4 py-2 rounded-lg'>View</button>
-            </div>
-            <div className='flex justify-between items-center bg-gray-200 p-4 rounded-lg shadow-md mb-4'>
-            <div className='flex items-center'>
-                <span className='text-lg font-semibold'>State 2</span>
-            </div>
-            <button className='bg-blue-500 text-white px-4 py-2 rounded-lg'>View</button>
-            </div>
-        </div>
-    </div>
-  )
-}
+  const navigate = useNavigate();
 
-export default ViewStates
+  return (
+    <div className="min-h-screen flex flex-col items-center justify-start p-8 bg-gray-50">
+      <h1 className="text-3xl font-bold mb-8 text-gray-800">View States</h1>
+
+      <button
+        className="bg-red-500 hover:bg-red-600 text-white font-semibold py-3 px-8 rounded-lg shadow-md transition-transform transform hover:scale-105 duration-300 ease-in-out"
+        onClick={() => navigate('/addstatus')}
+      >
+        Add Status
+      </button>
+    </div>
+  );
+};
+
+export default ViewStates;

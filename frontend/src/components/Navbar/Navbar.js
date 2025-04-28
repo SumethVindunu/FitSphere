@@ -65,10 +65,18 @@ const Navbar = () => {
             </li>
             <li>
               <Link
-                to="/viewstates"
+                to="/allitem"
                 className="w-full text-left hover:bg-gray-700 p-2 rounded block"
               >
                 View My Posts
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/viewstates"
+                className="w-full text-left hover:bg-gray-700 p-2 rounded block"
+              >
+                My status
               </Link>
             </li>
             
