@@ -1,61 +1,79 @@
-import axios from 'axios';
-import React from 'react'
-import { useEffect,useState } from 'react'
+import axios from "axios";
+import React from "react";
+import { useEffect, useState } from "react";
 
 function UserProfile() {
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-    const [user, setUser] = useState(null);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
-
-    useEffect(() => {
-        const userId = localStorage.getItem('userId');
-        if (!userId) {
-            setError('User not logged in');
-            setLoading(false);
-            return;
-        }
-        axios.get(`http://localhost:8080/user/${userId}`)
-            .then((response) => {
-                setUser(response.data);
-                setLoading(false);
-            })
-            .catch((error) => {
-                setError('Error fetching user data');
-                setLoading(false);
-            });
-
-    },[]);
-
-    if (loading) {
-        return <div>Loading...</div>;
+  useEffect(() => {
+    const userId = localStorage.getItem("userId");
+    if (!userId) {
+      setError("User not logged in");
+      setLoading(false);
+      return;
     }
-    if (error) {
-        return <div>{error}</div>;
-    }
-    const UpdateNavigate = (id) => {
-        window.location.href = `/updateprofile/${id}`;
-    };
+    axios
+      .get(`http://localhost:8080/user/${userId}`)
+      .then((response) => {
+        setUser(response.data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        setError("Error fetching user data");
+        setLoading(false);
+      });
+  }, []);
 
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center h-screen text-lg font-semibold">
+        Loading...
+      </div>
+    );
+  }
+  if (error) {
+    return (
+      <div className="flex justify-center items-center h-screen text-red-500 text-lg font-semibold">
+        {error}
+      </div>
+    );
+  }
+
+  const UpdateNavigate = (id) => {
+    window.location.href = `/updateprofile/${id}`;
+  };
 
   return (
-    <div>
-        <h2>User Profile</h2>
-        {user ? (
-            <div>
-                <p>Full Name: {user.fullname}</p>
-                <p>Email: {user.email}</p>
-                <p>Password: {user.password}</p>
-                <p>Phone: {user.phone}</p>
-                <button onClick={() => UpdateNavigate(user.userId)}>Update Profile</button>
-
-            </div>
-        ):(
-             <p>No user data available</p>
-        )}
-
+    <div className="min-h-screen bg-gray-100 flex flex-col items-center py-10">
+      <h2 className="text-2xl font-bold mb-6 text-gray-800">User Profile</h2>
+      {user ? (
+        <div className="bg-white shadow-md rounded-lg p-6 w-full max-w-md">
+          <p className="text-gray-700 mb-4">
+            <span className="font-semibold">Full Name:</span> {user.fullname}
+          </p>
+          <p className="text-gray-700 mb-4">
+            <span className="font-semibold">Email:</span> {user.email}
+          </p>
+          <p className="text-gray-700 mb-4">
+            <span className="font-semibold">Password:</span> {user.password}
+          </p>
+          <p className="text-gray-700 mb-4">
+            <span className="font-semibold">Phone:</span> {user.phone}
+          </p>
+          <button
+            onClick={() => UpdateNavigate(user.userId)}
+            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg transition duration-300"
+          >
+            Update Profile
+          </button>
+        </div>
+      ) : (
+        <p className="text-gray-500">No user data available</p>
+      )}
     </div>
-  )
+  );
 }
 
-export default UserProfile
+export default UserProfile;
