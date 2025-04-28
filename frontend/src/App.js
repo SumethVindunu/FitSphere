@@ -47,7 +47,7 @@ function App() {
           {/* navbar */}
           <Route path="/viewstates" element={<ViewStates />} />
           <Route path="/addstatus" element={<AddStatus />} />
-          <Route path="/updatestatus" element={<UpdateStatus />} />
+          <Route path="/updatestatus/:id" element={<UpdateStatus />} />
           {/* 404 */}
           
 
