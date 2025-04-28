@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const ViewStates = () => {
   const navigate = useNavigate();
@@ -8,25 +9,42 @@ const ViewStates = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    // Fetch all statuses
-    const fetchStatuses = async () => {
-      try {
-        const response = await fetch('http://localhost:8080/status');
-        if (!response.ok) {
-          throw new Error('Failed to fetch statuses');
-        }
-        const data = await response.json();
-        setStatuses(data);
-      } catch (err) {
-        console.error('Error fetching statuses:', err);
-        setError(err.message);
-      } finally {
-        setLoading(false);
-      }
-    };
-
     fetchStatuses();
   }, []);
+
+  const fetchStatuses = async () => {
+    try {
+      const response = await fetch('http://localhost:8080/status');
+      if (!response.ok) {
+        throw new Error('Failed to fetch statuses');
+      }
+      const data = await response.json();
+      setStatuses(data);
+    } catch (err) {
+      console.error('Error fetching statuses:', err);
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleDelete = async (id) => {
+    if (!window.confirm("Are you sure you want to delete this status?")) return;
+
+    try {
+      const response = await fetch(`http://localhost:8080/status/${id}`, {
+        method: 'DELETE',
+      });
+      if (!response.ok) {
+        throw new Error('Failed to delete status');
+      }
+      toast.success("Status deleted successfully!");
+      setStatuses(statuses.filter((status) => status.id !== id));
+    } catch (err) {
+      console.error('Error deleting status:', err);
+      toast.error('Failed to delete status');
+    }
+  };
 
   if (loading) {
     return (
@@ -70,6 +88,20 @@ const ViewStates = () => {
               <div className="mt-4 text-sm text-gray-500">
                 <p>Progress: {status.progressTemplate}</p>
                 <p>Date: {new Date(status.date).toLocaleDateString()}</p>
+              </div>
+              <div className="flex justify-end gap-2 mt-4">
+                <button
+                  onClick={() => navigate(`/updatestatus/${status.id}`)}
+                  className="bg-blue-500 hover:bg-blue-600 text-white py-1 px-4 rounded-lg text-sm"
+                >
+                  Edit
+                </button>
+                <button
+                  onClick={() => handleDelete(status.id)}
+                  className="bg-red-500 hover:bg-red-600 text-white py-1 px-4 rounded-lg text-sm"
+                >
+                  Delete
+                </button>
               </div>
             </div>
           ))}
