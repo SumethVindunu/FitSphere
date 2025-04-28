@@ -13,6 +13,7 @@ import Navbar from './components/Navbar/Navbar';
 import Login from './components/Login/Login';
 import Profile from './components/Profile/Profile';
 import ViewStates from './components/Status/ViewStates';
+import AddStatus from './components/Status/AddStatus';
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           {/* navbar */}
           <Route path="/viewstates" element={<ViewStates />} />
+          <Route path="/addstatus" element={<AddStatus />} />
           {/* 404 */}
           
 
