@@ -23,7 +23,7 @@ const AddStatus = () => {
     e.preventDefault();
     try {
       await axios.post('http://localhost:8080/status', statusData);
-      navigate('/viewstatus'); // change if your route is different
+      navigate('/viewstates'); // change if your route is different
     } catch (error) {
       console.error('Error creating status:', error);
     }

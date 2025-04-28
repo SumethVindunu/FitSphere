@@ -68,6 +68,14 @@ public StatusModel createStatus(@RequestBody StatusModel status) {
     return statusRepository.save(status);
 }
 
+// Get all statuses
+@GetMapping("/status")
+public List<StatusModel> getAllStatuses() {
+    return statusRepository.findAll();
+}
+
+
+
 // Get all statuses for a user
 @GetMapping("/status/user/{userId}")
 public List<StatusModel> getStatusesByUserId(@PathVariable Long userId) {
