@@ -1,7 +1,11 @@
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 import React, { useState } from "react";
 import { Link } from "react-router-dom"; // Import Link from React Router
+=======
+import React from "react";
+>>>>>>> Stashed changes
 =======
 import React from "react";
 >>>>>>> Stashed changes
@@ -14,11 +18,15 @@ import "react-toastify/dist/ReactToastify.css";
 const Navbar = () => {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
+=======
+  const userid = localStorage.getItem("userId");
+>>>>>>> Stashed changes
 =======
   const userid = localStorage.getItem("userId");
 >>>>>>> Stashed changes
@@ -35,6 +43,7 @@ const Navbar = () => {
   };
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
   return (
     <div>
@@ -44,6 +53,10 @@ const Navbar = () => {
 =======
   return (
     <div>
+=======
+  return (
+    <div>
+>>>>>>> Stashed changes
 =======
   return (
     <div>
@@ -194,6 +207,9 @@ const Navbar = () => {
 };
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes

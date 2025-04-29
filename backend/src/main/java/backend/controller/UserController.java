@@ -21,7 +21,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 import org.springframework.web.bind.annotation.PutMapping;
+=======
+
+>>>>>>> Stashed changes
 =======
 
 >>>>>>> Stashed changes
@@ -63,6 +67,7 @@ public class UserController {
     }
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     // Display
     @GetMapping("/user")
     List<UserModel> getAllUsers() {
@@ -97,6 +102,8 @@ public class UserController {
         return "User account " + id + " deleted successfully"; // Fix: Correct string concatenation
     }
 
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
     //Display
