@@ -12,10 +12,14 @@ import React from "react";
 =======
 import React from "react";
 >>>>>>> Stashed changes
+=======
+import React from "react";
+>>>>>>> Stashed changes
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Navbar = () => {
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
@@ -24,6 +28,9 @@ const Navbar = () => {
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
+=======
+  const userid = localStorage.getItem("userId");
+>>>>>>> Stashed changes
 =======
   const userid = localStorage.getItem("userId");
 >>>>>>> Stashed changes
@@ -44,6 +51,7 @@ const Navbar = () => {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
   return (
     <div>
@@ -53,6 +61,10 @@ const Navbar = () => {
 =======
   return (
     <div>
+=======
+  return (
+    <div>
+>>>>>>> Stashed changes
 =======
   return (
     <div>
@@ -208,6 +220,9 @@ const Navbar = () => {
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
