@@ -14,6 +14,8 @@ import Login from './components/Login/Login';
 import ViewStates from './components/Status/ViewStates';
 import UserProfile from './components/UserProfile/UserProfile';
 import UpdateProfile from './components/UpdateProfile/UpdateProfile';
+import AddStatus from './components/Status/AddStatus';
+import UpdateStatus from './components/Status/UpdateStatus';
 
 function App() {
   return (
@@ -46,6 +48,8 @@ function App() {
           <Route path="/updateprofile/:id" element={<UpdateProfile />} /> 
           {/* navbar */}
           <Route path="/viewstates" element={<ViewStates />} />
+          <Route path="/addstatus" element={<AddStatus />} />
+          <Route path="/updatestatus/:id" element={<UpdateStatus />} />
           {/* 404 */}
           
 
