@@ -1,47 +1,18 @@
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
+
 import React, { useState } from "react";
 import { Link } from "react-router-dom"; // Import Link from React Router
-=======
 import React from "react";
->>>>>>> Stashed changes
-=======
-import React from "react";
->>>>>>> Stashed changes
-=======
-import React from "react";
->>>>>>> Stashed changes
-=======
-import React from "react";
->>>>>>> Stashed changes
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Navbar = () => {
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
-=======
-  const userid = localStorage.getItem("userId");
->>>>>>> Stashed changes
-=======
-  const userid = localStorage.getItem("userId");
->>>>>>> Stashed changes
-=======
-  const userid = localStorage.getItem("userId");
->>>>>>> Stashed changes
-=======
-  const userid = localStorage.getItem("userId");
->>>>>>> Stashed changes
 
+  const userid = localStorage.getItem("userId");
   const handleLogout = () => {
     localStorage.removeItem("userId");
     toast.error("Logout successful");
@@ -49,41 +20,24 @@ const Navbar = () => {
       window.location.href = "/login";
     }, 2000);
   };
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-
   return (
     <div>
       {/* Navbar */}
       <nav className="bg-blue-500 p-4 shadow-lg">
         <div className="container mx-auto flex items-center">
-=======
+
   return (
     <div>
-=======
-  return (
-    <div>
->>>>>>> Stashed changes
-=======
-  return (
-    <div>
->>>>>>> Stashed changes
-=======
-  return (
-    <div>
->>>>>>> Stashed changes
       <nav className="bg-blue-500 p-4 shadow-lg">
         <div className="container mx-auto flex  ">
->>>>>>> Stashed changes
+
           <div
             className="text-white text-lg font-bold cursor-pointer"
             onClick={() => (window.location.href = "/")}
           >
             My App
           </div>
-<<<<<<< Updated upstream
+
           <button
             className="ml-auto text-white text-lg focus:outline-none mr-4"
             onClick={toggleSidebar}
@@ -120,13 +74,21 @@ const Navbar = () => {
             </li>
             <li>
               <Link
-                to="/viewstates"
+                to="/allitem"
                 className="w-full text-left hover:bg-gray-700 p-2 rounded block"
               >
                 View My Posts
               </Link>
             </li>
-
+            <li>
+              <Link
+                to="/viewstates"
+                className="w-full text-left hover:bg-gray-700 p-2 rounded block"
+              >
+                My status
+              </Link>
+            </li>
+            
             <li>
               <Link
                 to="/register"
@@ -172,7 +134,6 @@ const Navbar = () => {
   );
 };
 
-=======
 
           <div className="ml-auto flex space-x-4 ">
             {!userid ? (
@@ -219,14 +180,4 @@ const Navbar = () => {
   );
 };
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 export default Navbar;
