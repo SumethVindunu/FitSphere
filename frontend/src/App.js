@@ -14,6 +14,7 @@ import Login from './components/Login/Login';
 import Profile from './components/Profile/Profile';
 import ViewStates from './components/Status/ViewStates';
 import AddStatus from './components/Status/AddStatus';
+import UpdateStatus from './components/Status/UpdateStatus';
 
 function App() {
   return (
@@ -46,6 +47,7 @@ function App() {
           {/* navbar */}
           <Route path="/viewstates" element={<ViewStates />} />
           <Route path="/addstatus" element={<AddStatus />} />
+          <Route path="/updatestatus/:id" element={<UpdateStatus />} />
           {/* 404 */}
           
 
