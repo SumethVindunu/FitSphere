@@ -43,7 +43,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/userprofile" element={<UserProfile />} />
-          { <Route path="/updateprofile/:id" element={<UpdateProfile />} /> }
+          <Route path="/updateprofile/:id" element={<UpdateProfile />} /> 
           {/* navbar */}
           <Route path="/viewstates" element={<ViewStates />} />
           {/* 404 */}

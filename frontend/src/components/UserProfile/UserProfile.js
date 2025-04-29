@@ -45,6 +45,20 @@ function UserProfile() {
     window.location.href = `/updateprofile/${id}`;
   };
 
+  const deleteaccount = async () => {
+    const confirmation = window.confirm("Are you want to delete this account?");
+    if (confirmation) {
+      try {
+        await axios.delete(`http://localhost:8080/user/${user.id}`);
+        alert("account deleted successfully");
+        localStorage.removeItem("userId");
+        window.location.href = "/register";
+      } catch (error) {
+        alert("Error deleting account");
+      }
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col items-center py-10">
       <h2 className="text-2xl font-bold mb-6 text-gray-800">User Profile</h2>
@@ -62,12 +76,22 @@ function UserProfile() {
           <p className="text-gray-700 mb-4">
             <span className="font-semibold">Phone:</span> {user.phone}
           </p>
-          <button
-            onClick={() => UpdateNavigate(user.userId)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg transition duration-300"
-          >
-            Update Profile
-          </button>
+          <div className="flex space-x-4">
+            {" "}
+            {/* Added flex and space-x-4 for spacing */}
+            <button
+              onClick={() => UpdateNavigate(user.id)}
+              className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg transition duration-300"
+            >
+              Update
+            </button>
+            <button
+              onClick={() => deleteaccount(user.id)}
+              className="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-lg transition duration-300"
+            >
+              Delete
+            </button>
+          </div>
         </div>
       ) : (
         <p className="text-gray-500">No user data available</p>

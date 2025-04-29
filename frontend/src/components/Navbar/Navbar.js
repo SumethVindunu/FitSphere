@@ -1,14 +1,22 @@
+<<<<<<< Updated upstream
 import React, { useState } from "react";
 import { Link } from "react-router-dom"; // Import Link from React Router
+=======
+import React from "react";
+>>>>>>> Stashed changes
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Navbar = () => {
+<<<<<<< Updated upstream
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
+=======
+  const userid = localStorage.getItem("userId");
+>>>>>>> Stashed changes
 
   const handleLogout = () => {
     localStorage.removeItem("userId");
@@ -17,18 +25,26 @@ const Navbar = () => {
       window.location.href = "/login";
     }, 2000);
   };
+<<<<<<< Updated upstream
 
   return (
     <div>
       {/* Navbar */}
       <nav className="bg-blue-500 p-4 shadow-lg">
         <div className="container mx-auto flex items-center">
+=======
+  return (
+    <div>
+      <nav className="bg-blue-500 p-4 shadow-lg">
+        <div className="container mx-auto flex  ">
+>>>>>>> Stashed changes
           <div
             className="text-white text-lg font-bold cursor-pointer"
             onClick={() => (window.location.href = "/")}
           >
             My App
           </div>
+<<<<<<< Updated upstream
           <button
             className="ml-auto text-white text-lg focus:outline-none mr-4"
             onClick={toggleSidebar}
@@ -117,4 +133,52 @@ const Navbar = () => {
   );
 };
 
+=======
+
+          <div className="ml-auto flex space-x-4 ">
+            {!userid ? (
+              <>
+                {/* Register Button */}
+                <button
+                  className="bg-white text-blue-500 hover:bg-gray-100 font-bold py-2 px-4 rounded transition duration-300 ease-in-out"
+                  onClick={() => (window.location.href = "/register")}
+                >
+                  Register
+                </button>
+
+                {/* Login Button */}
+                <button
+                  className="bg-white text-blue-500 hover:bg-gray-100 font-bold py-2 px-4 rounded transition duration-300 ease-in-out"
+                  onClick={() => (window.location.href = "/login")}
+                >
+                  Login
+                </button>
+              </>
+            ) : (
+              <>
+                {/* Profile Button */}
+                <button
+                  className="bg-white text-blue-500 hover:bg-gray-100 font-bold py-2 px-4 rounded transition duration-300 ease-in-out"
+                  onClick={() => (window.location.href = "/profile")}
+                >
+                  Profile
+                </button>
+
+                {/* Logout Button */}
+                <button
+                  className="bg-white text-blue-500 hover:bg-red-400 hover:text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out"
+                  onClick={handleLogout}
+                >
+                  Logout
+                </button>
+              </>
+            )}
+          </div>
+        </div>
+      </nav>
+    </div>
+  );
+};
+
+>>>>>>> Stashed changes
 export default Navbar;

@@ -1,5 +1,4 @@
 package backend.model;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -34,11 +33,11 @@ public class UserModel {
         this.id = id;
     }
 
-    public String getFullName() {
+    public String getFullname() {
         return fullname;
     }
 
-    public void setFullName(String fullname) {
+    public void setFullname(String fullname) {
         this.fullname = fullname;
     }
 
