@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom'; // Import Link from React Router
+import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -21,13 +21,13 @@ const Navbar = () => {
   return (
     <div>
       {/* Navbar */}
-      <nav className="bg-blue-500 p-4 shadow-lg">
+      <nav className="bg-indigo-500 p-4 shadow-lg">
         <div className="container mx-auto flex items-center">
           <div
             className="text-white text-lg font-bold cursor-pointer"
             onClick={() => (window.location.href = "/")}
           >
-            My App
+            FitSphere
           </div>
           <button
             className="ml-auto text-white text-lg focus:outline-none mr-4"
@@ -40,33 +40,25 @@ const Navbar = () => {
 
       {/* Sidebar */}
       <div
-        className={`fixed top-0 left-0 h-full bg-gray-800 text-white w-64 transform ${
-          isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
+        className={`fixed top-0 right-0 h-full bg-indigo-500 text-white w-64 transform ${
+          isSidebarOpen ? 'translate-x-0' : 'translate-x-full'
         } transition-transform duration-300 ease-in-out`}
       >
         <div className="p-4">
-          <h2 className="text-xl font-bold">Menu</h2>
+          <h2 className="text-xl font-bold ml-5">Menu</h2>
           <ul className="mt-4 space-y-2">
-          <li>
+            <li>
               <Link
                 to="/"
-                className="w-full text-left hover:bg-gray-700 p-2 rounded block"
+                className="w-full text-left hover:bg-indigo-700 p-2 rounded block"
               >
                 Home
               </Link>
             </li>
             <li>
               <Link
-                to="/additem"
-                className="w-full text-left hover:bg-gray-700 p-2 rounded block"
-              >
-                Add Posts
-              </Link>
-            </li>
-            <li>
-              <Link
                 to="/allitem"
-                className="w-full text-left hover:bg-gray-700 p-2 rounded block"
+                className="w-full text-left hover:bg-indigo-700 p-2 rounded block"
               >
                 View My Posts
               </Link>
@@ -74,16 +66,15 @@ const Navbar = () => {
             <li>
               <Link
                 to="/viewstates"
-                className="w-full text-left hover:bg-gray-700 p-2 rounded block"
+                className="w-full text-left hover:bg-indigo-700 p-2 rounded block"
               >
                 My status
               </Link>
             </li>
-            
             <li>
               <Link
                 to="/register"
-                className="w-full text-left hover:bg-gray-700 p-2 rounded block"
+                className="w-full text-left hover:bg-indigo-700 p-2 rounded block"
               >
                 Register
               </Link>
@@ -91,7 +82,7 @@ const Navbar = () => {
             <li>
               <Link
                 to="/login"
-                className="w-full text-left hover:bg-gray-700 p-2 rounded block"
+                className="w-full text-left hover:bg-indigo-700 p-2 rounded block"
               >
                 Login
               </Link>
@@ -99,7 +90,7 @@ const Navbar = () => {
             <li>
               <Link
                 to="/profile"
-                className="w-full text-left hover:bg-gray-700 p-2 rounded block"
+                className="w-full text-left hover:bg-indigo-700 p-2 rounded block"
               >
                 Profile
               </Link>
@@ -115,7 +106,7 @@ const Navbar = () => {
           </ul>
         </div>
         <button
-          className="absolute top-4 right-4 text-white text-lg focus:outline-none"
+          className="absolute top-4 left-4 text-white text-lg focus:outline-none"
           onClick={toggleSidebar}
         >
           ✕

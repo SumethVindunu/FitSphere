@@ -31,12 +31,12 @@ const Login = () => {
         }
     }
   return (
-    <div className="flex flex-col items-center p-4">
+    <div className="min-h-screen bg-gradient-to-r from-indigo-100 via-purple-100 to-pink-100 flex flex-col items-center pt-12">
       <h2 className="text-2xl font-bold mb-4">Login</h2>
       <form
         id="registrationForm"
         onSubmit={onSubmit}
-        className="w-full max-w-lg space-y-4"
+        className="w-full max-w-lg bg-white p-8 rounded-lg shadow-md space-y-6"
       >
         <div>
           <label
@@ -51,7 +51,7 @@ const Login = () => {
             name="email"
             onChange={(e) => setEmail(e.target.value)}
             value={email}
-            className="mt-1 block w-full border border-gray-300 rounded-md p-2"
+            className="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
             required
           />
         </div>
@@ -68,14 +68,14 @@ const Login = () => {
             name="password"
             onChange={(e) => setPassword(e.target.value)}
             value={password}
-            className="mt-1 block w-full border border-gray-300 rounded-md p-2"
+            className="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
             required
           />
         </div>
 
         <button
           type="submit"
-          className="mt-4 bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-700"
+          className="w-full bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-700"
         >
           Login
         </button>

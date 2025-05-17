@@ -1,8 +1,11 @@
 package backend.model;
 
+import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class InventoryModel {
@@ -15,10 +18,14 @@ public class InventoryModel {
     private String itemCategory;
     private String itemQty;
     private String itemDetails;
+    
+    // New fields for like and comment
+    private int likeCount;
+    
+    @ElementCollection
+    private List<String> comments = new ArrayList<>();
 
-    public InventoryModel(){
-
-    }
+    public InventoryModel() {}
 
     public Long getId() {
         return id;
@@ -74,6 +81,22 @@ public class InventoryModel {
 
     public void setItemDetails(String itemDetails) {
         this.itemDetails = itemDetails;
+    }
+
+    public int getLikeCount() {
+        return likeCount;
+    }
+
+    public void setLikeCount(int likeCount) {
+        this.likeCount = likeCount;
+    }
+
+    public List<String> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<String> comments) {
+        this.comments = comments;
     }
 
     public InventoryModel(Long id, String itemId, String itemImage, String itemName, String itemCategory, String itemQty, String itemDetails) {

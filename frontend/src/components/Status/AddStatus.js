@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
@@ -12,6 +12,11 @@ const AddStatus = () => {
     date: '',
   });
 
+  useEffect(() => {
+    const storedUserId = localStorage.getItem('userId') || '';
+    setStatusData(prevData => ({ ...prevData, userId: storedUserId }));
+  }, []);
+
   const handleChange = (e) => {
     setStatusData({
       ...statusData,
@@ -23,7 +28,7 @@ const AddStatus = () => {
     e.preventDefault();
     try {
       await axios.post('http://localhost:8080/status', statusData);
-      navigate('/viewstates'); // change if your route is different
+      navigate('/viewstates');
     } catch (error) {
       console.error('Error creating status:', error);
     }
@@ -34,18 +39,9 @@ const AddStatus = () => {
       <div className="w-full max-w-md bg-white rounded-2xl shadow-lg p-8">
         <h2 className="text-2xl font-bold text-center text-gray-700 mb-6">Add New Status</h2>
         <form onSubmit={handleSubmit} className="space-y-5">
-          <div>
-            <label className="block text-gray-600 mb-2">User ID</label>
-            <input
-              type="text"
-              name="userId"
-              value={statusData.userId}
-              onChange={handleChange}
-              required
-              className="w-full px-4 py-3 rounded-lg bg-gray-100 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-400"
-            />
-          </div>
-
+          {/* Hidden field for userId */}
+          <input type="hidden" name="userId" value={statusData.userId} />
+          
           <div>
             <label className="block text-gray-600 mb-2">Title</label>
             <input
