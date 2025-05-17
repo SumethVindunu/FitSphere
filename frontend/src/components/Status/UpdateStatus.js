@@ -66,17 +66,17 @@ const UpdateStatus = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-indigo-100 via-purple-100 to-pink-100">
+      <div className="min-h-screen flex items-center justify-center bg-gray-50">
         <div className="text-2xl text-gray-600">Loading status...</div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-r from-indigo-100 via-purple-100 to-pink-100 p-6 flex items-center justify-center">
+    <div className="min-h-screen bg-gray-50 flex items-center justify-center p-8">
       <form
         onSubmit={handleSubmit}
-        className="bg-white rounded-2xl shadow-lg w-full max-w-md p-8 space-y-6"
+        className="bg-white p-8 rounded-2xl shadow-lg w-full max-w-md space-y-6"
       >
         <h2 className="text-3xl font-bold text-gray-800 text-center">Update Status</h2>
 
@@ -131,7 +131,7 @@ const UpdateStatus = () => {
         <div className="flex justify-center">
           <button
             type="submit"
-            className="bg-indigo-500 hover:bg-indigo-600 text-white font-semibold py-2 px-6 rounded-lg shadow-md transition-transform transform hover:scale-105 duration-300"
+            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-6 rounded-lg shadow-md transition-transform transform hover:scale-105 duration-300"
           >
             Update
           </button>
