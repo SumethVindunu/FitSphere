@@ -7,34 +7,35 @@ const Login = () => {
 
     const [email,setEmail] = React.useState('');
     const [password,setPassword] = React.useState('');
+
     const onSubmit = async (e)=>{
         e.preventDefault();
         const loginDetails = {email,password};
         try {
-            const responce = await axios.post('http://localhost:8080/login', loginDetails);
-            if(responce.data.id){
-                localStorage.setItem('userId',responce.data.id);//save user
+            const response = await axios.post('http://localhost:8080/login', loginDetails);
+            if(response.data.id){
+                localStorage.setItem('userId',response.data.id);//save user
                 toast.success('Login successful');
                 setTimeout(() => {
-                  window.location.href = '/profile';
+                  window.location.href = '/userprofile';
               }, 2000);
               }else{
                 toast.error('Invalid credentials');
             }
             
         } catch (error) {
-          toast.error('Error loging in');
+          console.error("Login Error:", error.response ? error.response.data : error.message); // Log error details
+          toast.error('Error logging in');
           setTimeout(() => {
-            window.location.reload();
-        }, 2000);
-            
-        }
+              window.location.href = '/login';
+          }, 2000);
+      }
     }
   return (
     <div className="min-h-screen bg-gradient-to-r from-indigo-100 via-purple-100 to-pink-100 flex flex-col items-center pt-12">
       <h2 className="text-2xl font-bold mb-4">Login</h2>
       <form
-        id="registrationForm"
+        id="loginForm"
         onSubmit={onSubmit}
         className="w-full max-w-lg bg-white p-8 rounded-lg shadow-md space-y-6"
       >

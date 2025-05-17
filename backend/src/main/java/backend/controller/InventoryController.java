@@ -55,7 +55,7 @@ public class InventoryController {
                 .orElseThrow(() -> new InventoryNotFoundException(id));
     }
 
-    private final String UPLOAD_DIR = "C:/Users/sumet/Desktop/project/spring-crud/spring-CRUD/pto/";
+    private final String UPLOAD_DIR = "C:/Users/20020/Desktop/PAF/FitSphere/pto/";
 
     @GetMapping("/uploads/{filename}")
     public ResponseEntity<FileSystemResource> getImage(@PathVariable String filename) {
@@ -85,7 +85,7 @@ public class InventoryController {
             existingInventory.setItemQty(newInventory.getItemQty());
             existingInventory.setItemDetails(newInventory.getItemDetails());
             if (file != null && !file.isEmpty()) {
-                String folder = "C:/Users/sumet/Desktop/project/spring-crud/spring-CRUD/pto/";
+                String folder = "C:/Users/20020/Desktop/PAF/FitSphere/pto/";
                 String itemImage = file.getOriginalFilename();
                 try {
                     file.transferTo(Paths.get(folder + itemImage));

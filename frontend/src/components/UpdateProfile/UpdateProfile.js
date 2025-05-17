@@ -1,35 +1,62 @@
-import React, { useState } from "react";
 import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 
-const Register = () => {
-  const [user, setUser] = useState({
+function UpdateProfile() {
+  const { id } = useParams();
+  const [formData, setFormData] = useState({
     fullname: "",
     email: "",
     password: "",
     phone: "",
   });
+  const navigate = useNavigate();
 
-  const { fullname, email, password, phone } = user;
+  // Fetch user data when the component loads
+  useEffect(() => {
+    if (!id) {
+      console.error("ID is undefined. Cannot fetch user data.");
+      return;
+    }
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`http://localhost:8080/user/${id}`);
+        const itemdata = response.data;
+        setFormData({
+          fullname: itemdata.fullname || "",
+          email: itemdata.email || "",
+          password: itemdata.password || "",
+          phone: itemdata.phone || "",
+        });
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+    fetchData();
+  }, [id]);
 
+  // Handle input changes
   const onInputChange = (e) => {
-    setUser({ ...user, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
   };
 
+  // Handle form submission
   const onSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:8080/user", user);
-      alert("User registered successfully");
-      window.location.href = "/login";
-      // Optionally redirect or reset the form here
+      await axios.put(`http://localhost:8080/user/${id}`, formData);
+      alert("Profile update successfully");
+      navigate("/userprofile"); // Redirect after successful update
     } catch (error) {
-      alert("Error registering user");
+      console.error("Error updating data:", error);
+      alert("Failed to update profile.");
     }
   };
 
   return (
     <div className="flex flex-col items-center p-4">
-      <h2 className="text-2xl font-bold mb-4">Register</h2>
+      <h2 className="text-2xl font-bold mb-4">Update Profile</h2>
       <form
         id="registrationForm"
         onSubmit={onSubmit}
@@ -46,8 +73,8 @@ const Register = () => {
             type="text"
             id="fullname"
             name="fullname"
-            onChange={(e) => onInputChange(e)}
-            value={fullname}
+            onChange={onInputChange}
+            value={formData.fullname}
             className="mt-1 block w-full border border-gray-300 rounded-md p-2"
             required
           />
@@ -63,8 +90,8 @@ const Register = () => {
             type="email"
             id="email"
             name="email"
-            onChange={(e) => onInputChange(e)}
-            value={email}
+            onChange={onInputChange}
+            value={formData.email}
             className="mt-1 block w-full border border-gray-300 rounded-md p-2"
             required
           />
@@ -80,8 +107,8 @@ const Register = () => {
             type="password"
             id="password"
             name="password"
-            onChange={(e) => onInputChange(e)}
-            value={password}
+            onChange={onInputChange}
+            value={formData.password}
             className="mt-1 block w-full border border-gray-300 rounded-md p-2"
             required
           />
@@ -97,8 +124,8 @@ const Register = () => {
             type="text"
             id="phone"
             name="phone"
-            onChange={(e) => onInputChange(e)}
-            value={phone}
+            onChange={onInputChange}
+            value={formData.phone}
             className="mt-1 block w-full border border-gray-300 rounded-md p-2"
             required
           />
@@ -107,11 +134,11 @@ const Register = () => {
           type="submit"
           className="mt-4 bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-700"
         >
-          Register
+          Update
         </button>
       </form>
     </div>
   );
-};
+}
 
-export default Register;
+export default UpdateProfile;
