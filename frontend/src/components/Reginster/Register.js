@@ -11,6 +11,7 @@ const Register = () => {
 
   const { fullname, email, password, phone } = user;
 
+
   const onInputChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
@@ -26,6 +27,7 @@ const Register = () => {
       alert("Error registering user");
     }
   };
+
 
   return (
     <div className="flex flex-col items-center p-4">

@@ -16,13 +16,10 @@ import UserProfile from './components/UserProfile/UserProfile';
 import UpdateProfile from './components/UpdateProfile/UpdateProfile';
 import AddStatus from './components/Status/AddStatus';
 import UpdateStatus from './components/Status/UpdateStatus';
-import UpdateProfile from './components/Profile/UpdateProfile';
-import Test from './components/Test/Test';
-
 
 function App() {
   return (
-    <div className="App container mx-auto ">
+    <div className="App container mx-auto p-4">
       <Navbar/>
       <ToastContainer 
         position="top-right"
@@ -53,8 +50,6 @@ function App() {
           <Route path="/viewstates" element={<ViewStates />} />
           <Route path="/addstatus" element={<AddStatus />} />
           <Route path="/updatestatus/:id" element={<UpdateStatus />} />
-          <Route path="/test" element={< Test/>} />
-
           {/* 404 */}
           
 
